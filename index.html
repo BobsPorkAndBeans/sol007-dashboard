@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOL-007 Pilot Dashboard | Naber Research</title>
+  <meta name="description" content="Read-only public status dashboard for the SOL-007 25 SOL liquid-staking pilot.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Naber Research / SOL-007</p>
+        <h1>25 SOL Liquid-Staking Pilot</h1>
+        <p class="lede">Public, read-only status page for a small Solana LST research pilot. This page is informational only and is not investment advice.</p>
+      </div>
+      <a class="button" id="solscanLink" href="https://solscan.io/account/HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH" rel="noopener" target="_blank">View wallet on Solscan</a>
+    </header>
+
+    <section class="grid summary" aria-label="Pilot summary">
+      <article class="card"><span class="label">Pilot wallet</span><code id="pilotPubkey">HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH</code></article>
+      <article class="card"><span class="label">Deposit baseline</span><strong id="baselineSol">25.000 SOL</strong></article>
+      <article class="card"><span class="label">Native SOL buffer</span><strong id="nativeBuffer">0.503831695 SOL</strong></article>
+      <article class="card"><span class="label">Latest status</span><strong id="latestStatus">Loading…</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-head"><h2>Baseline allocation</h2><span id="capturedAt">Captured 2026-05-03</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Leg</th><th>Token account</th><th>Mint</th><th>Amount</th><th>Deposit basis</th></tr></thead>
+          <tbody id="legsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head"><h2>Tripwire status</h2><span>R2 / R4 / R5 / R7 / R8</span></div>
+      <div class="tripwires" id="tripwires"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-head"><h2>Incident log</h2><span id="incidentCount">Loading…</span></div>
+      <div id="incidents" class="incidents"></div>
+    </section>
+
+    <footer>
+      <p>Last updated: <time id="lastUpdated">Loading…</time></p>
+      <p>Static public dashboard. No auth, no trading controls, no private operational details.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

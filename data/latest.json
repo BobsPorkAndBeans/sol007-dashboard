@@ -1,0 +1,14 @@
+{
+  "status": "baseline_only",
+  "last_updated": "2026-05-03T19:04:00-06:00",
+  "message": "No post-baseline health snapshot has been published yet. Displaying deployment baseline values.",
+  "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+  "native_sol_buffer": 0.503831695,
+  "tripwires": {
+    "R2": { "label": "Peg / liquidity deviation", "status": "placeholder", "note": "Awaiting live health feed." },
+    "R4": { "label": "Venue TVL drawdown", "status": "placeholder", "note": "Awaiting live health feed." },
+    "R5": { "label": "Pilot drawdown", "status": "placeholder", "note": "Baseline armed at 25 SOL deposit basis." },
+    "R7": { "label": "Smart-contract incident watch", "status": "placeholder", "note": "Awaiting live health feed." },
+    "R8": { "label": "Yield collapse / APY watch", "status": "placeholder", "note": "Awaiting 30-day pilot history." }
+  }
+}
