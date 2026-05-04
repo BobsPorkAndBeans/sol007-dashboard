@@ -20,3 +20,5 @@ async function main(){
   document.getElementById('incidents').innerHTML = incidents.length ? incidents.map(i => `<article><strong>${i.date}</strong><p>${i.summary}</p></article>`).join('') : `<div class="empty">No incidents published.</div>`;
 }
 main().catch(err => { document.getElementById('latestStatus').textContent = 'data load error'; console.error(err); });
+
+fetch('data/history.json').then(r=>r.json()).then(h=>{const el=document.getElementById('drift-chart'); if(el) el.textContent=h.map(x=>`${x.updated_at}: ${x.drift_pct}%`).join('\n');});
