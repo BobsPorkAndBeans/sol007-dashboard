@@ -22,6 +22,18 @@
     "tvl": {
       "sanctum_usd": 1350345766.0,
       "jito_usd": 852325552.30592
+    },
+    "tripwires": {
+      "R5": {
+        "label": "5% drawdown",
+        "status": "healthy",
+        "note": "Armed — triggers automatic full withdrawal of affected leg(s)"
+      },
+      "R7": {
+        "label": "7% drawdown or regime breach",
+        "status": "healthy",
+        "note": "Armed — triggers automatic full withdrawal of affected leg(s)"
+      }
     }
   }
 ]
