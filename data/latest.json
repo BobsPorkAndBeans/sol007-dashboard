@@ -1,38 +1,25 @@
 {
-  "updated_at": "2026-05-04T12:32:28+00:00",
+  "updated_at": "2026-05-11T14:07:57+00:00",
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "total_sol_equivalent": 24.994598,
-  "drift_pct": -0.0216,
+  "total_sol_equivalent": 24.96323,
+  "drift_pct": -0.1471,
   "tripwire_status": "healthy",
   "legs": {
     "jitosol": {
       "symbol": "JitoSOL",
       "balance": 15.661410365,
-      "sol_price": 1.277248,
-      "sol_equivalent": 20.003506
+      "sol_price": 1.275103,
+      "sol_equivalent": 19.969914
     },
     "inf": {
       "symbol": "INF",
       "balance": 3.518819517,
-      "sol_price": 1.4184,
-      "sol_equivalent": 4.991092
+      "sol_price": 1.419032,
+      "sol_equivalent": 4.993316
     }
   },
   "tvl": {
-    "sanctum_usd": 1357274595.0,
-    "jito_usd": 842590491.45661
-  },
-  "tripwires": {
-    "R5": {
-      "label": "5% drawdown",
-      "status": "healthy",
-      "note": "Armed \u2014 triggers automatic full withdrawal of affected leg(s)"
-    },
-    "R7": {
-      "label": "7% drawdown or regime breach",
-      "status": "healthy",
-      "note": "Armed \u2014 triggers automatic full withdrawal of affected leg(s)"
-    }
-  },
-  "last_updated": "2026-05-11T02:53:35Z"
+    "sanctum_usd": 1566088181.0,
+    "jito_usd": 936981557.09227
+  }
 }
