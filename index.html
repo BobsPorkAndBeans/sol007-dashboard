@@ -36,6 +36,23 @@
     </section>
 
     <section class="panel">
+      <div class="section-head"><h2>Yield Returns</h2><span id="returnsUpdated">Loading…</span></div>
+      <section class="grid returns-summary" aria-label="Yield returns summary">
+        <article class="card"><span class="label">Total yield earned</span><strong id="yieldTotal">Loading…</strong></article>
+        <article class="card"><span class="label">Yield vs 25 SOL</span><strong id="yieldPct">Loading…</strong></article>
+        <article class="card"><span class="label">Implied APY</span><strong id="yieldApy">Loading…</strong></article>
+        <article class="card"><span class="label">Days elapsed</span><strong id="yieldDays">Loading…</strong></article>
+      </section>
+      <div class="table-wrap returns-table">
+        <table>
+          <thead><tr><th>Leg</th><th>Amount</th><th>Baseline SOL/token</th><th>Current SOL/token</th><th>Yield</th></tr></thead>
+          <tbody id="returnsBody"></tbody>
+        </table>
+      </div>
+      <pre id="returnsSparkline" class="sparkline">Loading…</pre>
+    </section>
+
+    <section class="panel">
       <div class="section-head"><h2>Tripwire status</h2><span>R2 / R4 / R5 / R7 / R8</span></div>
       <div class="tripwires" id="tripwires"></div>
     </section>
