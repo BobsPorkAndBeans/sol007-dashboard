@@ -2,6 +2,7 @@
 """Fetch SOL-007 LST exchange rates and update dashboard yield-return files."""
 import json
 import os
+import subprocess
 import tempfile
 import urllib.request
 from datetime import datetime, timezone
@@ -97,6 +98,26 @@ def main():
     with HISTORY_PATH.open("a") as f:
         f.write(json.dumps(snapshot, sort_keys=True, separators=(",", ":")) + "\n")
     print(json.dumps(snapshot, indent=2, sort_keys=True))
+
+    # Push updated returns.json to GitHub Pages so the public dashboard stays current.
+    # Only commit data/returns.json (not history, to keep diff small).
+    try:
+        apy = snapshot["annualized_apy"]
+        ts = snapshot["snapshot_at"]
+        commit_msg = f"yield update {ts} APY={apy:.2f}%"
+        subprocess.run(["git", "add", "data/returns.json", "data/returns_history.jsonl"], cwd=str(ROOT), check=True, capture_output=True)
+        result = subprocess.run(
+            ["git", "diff", "--cached", "--quiet"],
+            cwd=str(ROOT), capture_output=True
+        )
+        if result.returncode != 0:  # staged changes exist
+            subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(ROOT), check=True, capture_output=True)
+            subprocess.run(["git", "push"], cwd=str(ROOT), check=True, capture_output=True)
+            print(f"[git] pushed: {commit_msg}")
+        else:
+            print("[git] no change to commit")
+    except subprocess.CalledProcessError as e:
+        print(f"[git] push failed: {e.stderr.decode().strip() if e.stderr else e}")
 
 
 if __name__ == "__main__":
