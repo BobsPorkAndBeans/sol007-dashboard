@@ -1,26 +1,26 @@
 {
-  "drift_pct": 2.3225,
+  "drift_pct": 2.3168,
   "legs": {
     "inf": {
       "balance": 3.518819517,
-      "sol_equivalent": 5.000243,
-      "sol_price": 1.421,
+      "sol_equivalent": 5.014371,
+      "sol_price": 1.4250149910553662,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "sol_equivalent": 20.076555,
-      "sol_price": 1.2819123268113484,
+      "sol_equivalent": 20.061001,
+      "sol_price": 1.2809192139963452,
       "symbol": "JitoSOL"
     }
   },
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "total_sol_equivalent": 25.580629,
+  "total_sol_equivalent": 25.579204,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.385%, INF +0.000% vs baseline. Alert >1%, breached >3%.",
+      "note": "JitoSOL +0.307%, INF +0.283% vs baseline. Alert >1%, breached >3%.",
       "status": "ok"
     },
     "R4": {
@@ -40,9 +40,9 @@
     },
     "R8": {
       "label": "Venue Availability",
-      "note": "Partial price fetch failure.",
-      "status": "alert"
+      "note": "Jupiter price API and LST exchange rates fetched successfully.",
+      "status": "ok"
     }
   },
-  "updated_at": "2026-06-02T01:27:17Z"
+  "updated_at": "2026-06-02T01:58:17Z"
 }
