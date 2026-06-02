@@ -1436,28 +1436,49 @@
     "updated_at": "2026-06-02T17:40:39Z"
   },
   {
-    "updated_at": "2026-06-02T18:11:52+00:00",
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "total_sol_equivalent": 25.116887,
     "drift_pct": 0.4675,
-    "tripwire_status": "healthy",
     "legs": {
-      "jitosol": {
-        "symbol": "JitoSOL",
-        "balance": 15.661410365,
-        "sol_price": 1.283431,
-        "sol_equivalent": 20.100341
-      },
       "inf": {
-        "symbol": "INF",
         "balance": 3.518819517,
+        "sol_equivalent": 5.016545,
         "sol_price": 1.425633,
-        "sol_equivalent": 5.016545
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "sol_equivalent": 20.100341,
+        "sol_price": 1.283431,
+        "symbol": "JitoSOL"
       }
     },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "total_sol_equivalent": 25.116887,
+    "tripwire_status": "healthy",
     "tvl": {
-      "sanctum_usd": 1310961786.0,
-      "jito_usd": 750398942.43017
-    }
+      "jito_usd": 750398942.43017,
+      "sanctum_usd": 1310961786.0
+    },
+    "updated_at": "2026-06-02T18:11:52+00:00"
+  },
+  {
+    "drift_pct": 2.4881,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "sol_equivalent": 5.021382,
+        "sol_price": 1.4270074771830144,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "sol_equivalent": 20.096808,
+        "sol_price": 1.2832054881360089,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "total_sol_equivalent": 25.622021,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-06-02T18:13:48Z"
   }
 ]
