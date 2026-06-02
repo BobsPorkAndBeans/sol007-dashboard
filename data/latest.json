@@ -1,48 +1,25 @@
 {
-  "drift_pct": 2.4594,
-  "legs": {
-    "inf": {
-      "balance": 3.518819517,
-      "sol_equivalent": 5.017469,
-      "sol_price": 1.4258954558271824,
-      "symbol": "INF"
-    },
-    "jitosol": {
-      "balance": 15.661410365,
-      "sol_equivalent": 20.093548,
-      "sol_price": 1.282997332154582,
-      "symbol": "JitoSOL"
-    }
-  },
+  "updated_at": "2026-06-02T18:11:52+00:00",
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "total_sol_equivalent": 25.614848,
+  "total_sol_equivalent": 25.116887,
+  "drift_pct": 0.4675,
   "tripwire_status": "healthy",
-  "tripwires": {
-    "R2": {
-      "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.470%, INF +0.345% vs baseline. Alert >1%, breached >3%.",
-      "status": "ok"
+  "legs": {
+    "jitosol": {
+      "symbol": "JitoSOL",
+      "balance": 15.661410365,
+      "sol_price": 1.283431,
+      "sol_equivalent": 20.100341
     },
-    "R4": {
-      "label": "Venue TVL Floor",
-      "note": "data unavailable",
-      "status": "ok"
-    },
-    "R5": {
-      "label": "Portfolio Drawdown",
-      "note": "Current drift +2.46% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
-      "status": "ok"
-    },
-    "R7": {
-      "label": "Smart-Contract Incident",
-      "note": "No Sanctum/Jito smart-contract incidents detected. Automatic exit if confirmed breach.",
-      "status": "ok"
-    },
-    "R8": {
-      "label": "Venue Availability",
-      "note": "Jupiter price API and LST exchange rates fetched successfully.",
-      "status": "ok"
+    "inf": {
+      "symbol": "INF",
+      "balance": 3.518819517,
+      "sol_price": 1.425633,
+      "sol_equivalent": 5.016545
     }
   },
-  "updated_at": "2026-06-02T17:40:39Z"
+  "tvl": {
+    "sanctum_usd": 1310961786.0,
+    "jito_usd": 750398942.43017
+  }
 }
