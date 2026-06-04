@@ -1,26 +1,5 @@
 [
   {
-    "drift_pct": 2.332,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "sol_equivalent": 5.012429,
-        "sol_price": 1.4244633517281897,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "sol_equivalent": 20.066731,
-        "sol_price": 1.2812850737348636,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "total_sol_equivalent": 25.582992,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-06-02T06:07:52Z"
-  },
-  {
     "drift_pct": 2.3669,
     "legs": {
       "inf": {
@@ -1918,5 +1897,27 @@
     "total_sol_equivalent": 25.58165,
     "tripwire_status": "healthy",
     "updated_at": "2026-06-04T00:13:40Z"
+  },
+  {
+    "drift_pct": 2.5547,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "sol_equivalent": 5.061198,
+        "sol_price": 1.4383227024140253,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "sol_equivalent": 20.073638,
+        "sol_price": 1.281726088,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "LKG cache used (age 0.5h <=4h) for jitosol | Jupiter OK for inf",
+    "total_sol_equivalent": 25.638668,
+    "tripwire_status": "alert",
+    "updated_at": "2026-06-04T00:41:11Z"
   }
 ]
