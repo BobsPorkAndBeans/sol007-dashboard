@@ -4,18 +4,18 @@
     "inf": {
       "balance": 3.518819517,
       "sol_equivalent": 5.024294,
-      "sol_price": 1.427835083032227,
+      "sol_price": 1.427835083,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
       "sol_equivalent": 20.08891,
-      "sol_price": 1.2827011906802923,
+      "sol_price": 1.282701191,
       "symbol": "JitoSOL"
     }
   },
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "price_source_note": "Jupiter OK for jitosol | Jupiter OK for inf",
+  "price_source_note": "LKG cache used (age 0.5h <=4h) for jitosol | LKG cache used (age 0.5h <=4h) for inf",
   "total_sol_equivalent": 25.617035,
   "tripwire_status": "healthy",
   "tripwires": {
@@ -41,9 +41,9 @@
     },
     "R8": {
       "label": "Venue Availability",
-      "note": "Jupiter price API and LST exchange rates fetched successfully.",
-      "status": "ok"
+      "note": "Partial price fetch failure (LKG cache used (age 0.5h <=4h) for jitosol | LKG cache used (age 0.5h <=4h) for inf).",
+      "status": "alert"
     }
   },
-  "updated_at": "2026-06-04T13:12:58Z"
+  "updated_at": "2026-06-04T13:42:23Z"
 }
