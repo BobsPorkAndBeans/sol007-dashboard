@@ -1,27 +1,27 @@
 {
-  "drift_pct": 2.2914,
+  "drift_pct": 2.2923,
   "legs": {
     "inf": {
       "balance": 3.518819517,
-      "sol_equivalent": 5.010114,
-      "sol_price": 1.4238054027112015,
+      "sol_equivalent": 5.005196,
+      "sol_price": 1.4224076261322045,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "sol_equivalent": 20.058902,
-      "sol_price": 1.2807851647014241,
+      "sol_equivalent": 20.064045,
+      "sol_price": 1.2811135679553622,
       "symbol": "JitoSOL"
     }
   },
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
   "price_source_note": "Jupiter OK for jitosol | Jupiter OK for inf",
-  "total_sol_equivalent": 25.572848,
+  "total_sol_equivalent": 25.573073,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.296%, INF +0.197% vs baseline. Alert >1%, breached >3%.",
+      "note": "JitoSOL +0.322%, INF +0.099% vs baseline. Alert >1%, breached >3%.",
       "status": "ok"
     },
     "R4": {
@@ -45,5 +45,5 @@
       "status": "ok"
     }
   },
-  "updated_at": "2026-06-04T03:42:25Z"
+  "updated_at": "2026-06-04T04:12:08Z"
 }
