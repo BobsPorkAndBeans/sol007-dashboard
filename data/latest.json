@@ -1,27 +1,27 @@
 {
-  "drift_pct": 2.1365,
+  "drift_pct": 2.6139,
   "legs": {
     "inf": {
       "balance": 3.518819517,
-      "sol_equivalent": 4.993354,
-      "sol_price": 1.4190423184312466,
+      "sol_equivalent": 5.021799,
+      "sol_price": 1.4271260737703257,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "sol_equivalent": 20.036941,
-      "sol_price": 1.2793829322838766,
+      "sol_equivalent": 20.127841,
+      "sol_price": 1.2851869939637655,
       "symbol": "JitoSOL"
     }
   },
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
   "price_source_note": "Jupiter OK for jitosol | Jupiter OK for inf",
-  "total_sol_equivalent": 25.534127,
+  "total_sol_equivalent": 25.653472,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.187%, INF -0.138% vs baseline. Alert >1%, breached >3%.",
+      "note": "JitoSOL +0.641%, INF +0.431% vs baseline. Alert >1%, breached >3%.",
       "status": "ok"
     },
     "R4": {
@@ -31,7 +31,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +2.14% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +2.61% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -45,5 +45,5 @@
       "status": "ok"
     }
   },
-  "updated_at": "2026-06-04T02:41:36Z"
+  "updated_at": "2026-06-04T03:12:06Z"
 }
