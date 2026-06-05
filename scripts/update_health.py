@@ -17,6 +17,7 @@ HISTORY_PATH = DATA / "history.json"
 INCIDENTS_PATH = DATA / "incidents.json"
 PRICE_CACHE_PATH = DATA / "price-cache.json"
 SOL_MINT = "So11111111111111111111111111111111111111112"
+SANCTUM_SOL_VALUE_URL = "https://extra-api.sanctum.so/v1/sol-value/current"
 MAX_CACHE_AGE_HOURS = 4.0
 R2_ALERT_RATIO = 0.985
 R2_BREACH_HOURS = 6.0
@@ -37,6 +38,19 @@ def jupiter_sol_price(mint):
     if sol_usd <= 0:
         raise ValueError("Jupiter returned non-positive SOL USD price")
     return token_usd / sol_usd, {"provider": "jupiter-price-v3", "url": url, "token_usd": token_usd, "sol_usd": sol_usd}
+
+
+def sanctum_sol_value(mint):
+    """Return intrinsic redemption value in SOL/token from Sanctum extra-api."""
+    url = f"{SANCTUM_SOL_VALUE_URL}?lst={mint}"
+    data = get_json(url, timeout=15)
+    raw = (data.get("solValues") or {}).get(mint)
+    if raw is None:
+        raise ValueError(f"Sanctum sol-value missing {mint}")
+    value = float(raw) / 1_000_000_000.0
+    if value <= 0:
+        raise ValueError(f"Sanctum sol-value non-positive for {mint}")
+    return value, {"provider": "sanctum-extra-api", "url": url}
 
 
 def atomic_write_json(path, payload):
@@ -70,15 +84,20 @@ def _parse_ts(value):
         return None
 
 
-def _leg_deviation_pct(legs, baseline, key):
-    baseline_price = float(baseline["legs"][key]["price_sol_per_token"])
-    if baseline_price <= 0:
-        raise ValueError(f"Baseline price for {key} must be positive")
+def _reference_price(reference, key):
+    price = float(reference["legs"][key]["price_sol_per_token"])
+    if price <= 0:
+        raise ValueError(f"R2 reference price for {key} must be positive")
+    return price
+
+
+def _leg_deviation_pct(legs, reference, key):
+    baseline_price = _reference_price(reference, key)
     current_price = float(legs[key]["sol_price"])
     return ((current_price - baseline_price) / baseline_price) * 100.0
 
 
-def _r2_sustained_breach(history, baseline, current_updated_at, current_below):
+def _r2_sustained_breach(history, reference, current_updated_at, current_below):
     """Return True when a downside R2 deviation has persisted across the full window."""
     if not history or not current_below:
         return False
@@ -92,46 +111,79 @@ def _r2_sustained_breach(history, baseline, current_updated_at, current_below):
 
     for row in history:
         ts = _parse_ts(row.get("updated_at"))
-        if ts is None or ts.timestamp() < window_start:
+        if ts is None:
             continue
         row_legs = row.get("legs") or {}
         for key in current_below:
             try:
-                ratio = float(row_legs[key]["sol_price"]) / float(baseline["legs"][key]["price_sol_per_token"])
+                ratio = float(row_legs[key]["sol_price"]) / _reference_price(reference, key)
             except Exception:
                 continue
             observed[key].append((ts.timestamp(), ratio))
 
-    for rows in observed.values():
+    for key, rows in observed.items():
         if not rows:
             continue
-        covers_full_window = min(ts for ts, _ in rows) <= window_start
-        stayed_below_threshold = all(ratio < R2_ALERT_RATIO for _, ratio in rows)
+        before_or_at_start = [row for row in rows if row[0] <= window_start]
+        after_start = [row for row in rows if row[0] >= window_start]
+        if not before_or_at_start:
+            continue
+        latest_before_start = max(before_or_at_start, key=lambda row: row[0])
+        current_ratio = float(current_below[key]) if isinstance(current_below, dict) else None
+        evidence_rows = [latest_before_start, *after_start]
+        if current_ratio is not None:
+            evidence_rows.append((now.timestamp(), current_ratio))
+
+        covers_full_window = latest_before_start[0] <= window_start
+        stayed_below_threshold = all(ratio < R2_ALERT_RATIO for _, ratio in evidence_rows)
         if covers_full_window and stayed_below_threshold:
             return True
     return False
 
 
-def evaluate_r2_tripwire(legs, baseline, history=None, current_updated_at=None):
+def evaluate_r2_tripwire(legs, baseline, history=None, current_updated_at=None, r2_reference=None):
     """Evaluate R2 as downside peg risk, not upside staking accrual or AMM premium."""
-    jito_dev = _leg_deviation_pct(legs, baseline, "jitosol")
-    inf_dev = _leg_deviation_pct(legs, baseline, "inf")
-    current_below = [
-        key
-        for key in ("jitosol", "inf")
-        if float(legs[key]["sol_price"]) / float(baseline["legs"][key]["price_sol_per_token"]) < R2_ALERT_RATIO
-    ]
+    reference = r2_reference or baseline
+    reference_source = reference.get("source", "baseline")
+    jito_dev = _leg_deviation_pct(legs, reference, "jitosol")
+    inf_dev = _leg_deviation_pct(legs, reference, "inf")
+    current_below = {}
+    for key in ("jitosol", "inf"):
+        ratio = float(legs[key]["sol_price"]) / _reference_price(reference, key)
+        if ratio < R2_ALERT_RATIO:
+            current_below[key] = ratio
 
     status = "ok"
     if current_below:
-        status = "breached" if _r2_sustained_breach(history, baseline, current_updated_at, current_below) else "alert"
+        status = "breached" if _r2_sustained_breach(history, reference, current_updated_at, current_below) else "alert"
 
     note = (
-        f"JitoSOL {jito_dev:+.3f}%, INF {inf_dev:+.3f}% vs baseline. "
+        f"JitoSOL {jito_dev:+.3f}%, INF {inf_dev:+.3f}% vs {reference_source}. "
         f"R2 downside peg threshold: <{R2_ALERT_RATIO:.3f} for >{R2_BREACH_HOURS:.0f}h. "
         "Upside premium/accrual is not a breach."
     )
     return status, note
+
+
+def load_r2_reference(baseline):
+    """Use current Sanctum redemption value for R2, falling back to baseline if unavailable."""
+    reference = {"source": "sanctum-redemption", "legs": {}}
+    notes = []
+    ok = True
+    for key in ("jitosol", "inf"):
+        base_leg = baseline["legs"][key]
+        fallback_price = float(base_leg["price_sol_per_token"])
+        try:
+            value, _meta = sanctum_sol_value(base_leg["mint"])
+            reference["legs"][key] = {"price_sol_per_token": value}
+            notes.append(f"Sanctum redemption OK for {key}")
+        except Exception as exc:
+            ok = False
+            reference["legs"][key] = {"price_sol_per_token": fallback_price}
+            notes.append(f"Baseline R2 reference fallback for {key}: {exc}")
+    if not ok:
+        reference["source"] = "baseline-fallback"
+    return reference, ok, " | ".join(notes)
 
 
 def load_price_cache(path=PRICE_CACHE_PATH):
@@ -188,6 +240,7 @@ def evaluate_tripwires(
     price_source_note="",
     history=None,
     current_updated_at=None,
+    r2_reference=None,
 ):
     """Evaluate all 5 tripwires per spec."""
     tripwires = {}
@@ -199,6 +252,7 @@ def evaluate_tripwires(
         baseline,
         history=history,
         current_updated_at=current_updated_at,
+        r2_reference=r2_reference,
     )
     if r2_status == "breached":
         overall_status = "breached"
@@ -283,6 +337,8 @@ def main():
 
         now_iso = updated_at
         price_cache = load_price_cache()
+        r2_reference, r2_reference_ok, r2_reference_note = load_r2_reference(baseline)
+        price_source_notes.append(r2_reference_note)
 
         for key in ("jitosol", "inf"):
             base_leg = baseline["legs"][key]
@@ -298,6 +354,8 @@ def main():
                 "symbol": base_leg.get("label", key.upper()),
                 "balance": amount,
                 "sol_price": current_price,
+                "r2_reference_sol_price": r2_reference["legs"][key]["price_sol_per_token"],
+                "r2_reference_source": r2_reference["source"],
                 "sol_equivalent": round(sol_equiv, 6),
             }
 
@@ -332,6 +390,7 @@ def main():
             price_source_note,
             history=history,
             current_updated_at=updated_at,
+            r2_reference=r2_reference,
         )
 
         # Build latest.json payload (exact schema match for app.js)
@@ -344,6 +403,8 @@ def main():
             "legs": legs,
             "tripwires": tripwires,
             "price_source_note": price_source_note,
+            "r2_reference_source": r2_reference["source"],
+            "r2_reference_ok": r2_reference_ok,
         }
 
         atomic_write_json(LATEST_PATH, latest)
@@ -357,6 +418,8 @@ def main():
             "tripwire_status": overall_status,
             "legs": legs,
             "price_source_note": price_source_note,
+            "r2_reference_source": r2_reference["source"],
+            "r2_reference_ok": r2_reference_ok,
         }
         history.append(history_entry)
         history = trim_history(history, 90)
