@@ -1,26 +1,5 @@
 [
   {
-    "drift_pct": 2.2832,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "sol_equivalent": 5.007209,
-        "sol_price": 1.4229798731836256,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "sol_equivalent": 20.059749,
-        "sol_price": 1.2808392446662242,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "total_sol_equivalent": 25.57079,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-06-03T07:43:24Z"
-  },
-  {
     "drift_pct": 2.5189,
     "legs": {
       "inf": {
@@ -1967,5 +1946,27 @@
     "total_sol_equivalent": 25.637652,
     "tripwire_status": "healthy",
     "updated_at": "2026-06-05T06:22:49Z"
+  },
+  {
+    "drift_pct": 3.1968,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "sol_equivalent": 5.055941,
+        "sol_price": 1.436828677478327,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "sol_equivalent": 20.239416,
+        "sol_price": 1.292311196729263,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Jupiter OK for jitosol | Jupiter OK for inf",
+    "total_sol_equivalent": 25.799188,
+    "tripwire_status": "alert",
+    "updated_at": "2026-06-05T06:22:56Z"
   }
 ]
