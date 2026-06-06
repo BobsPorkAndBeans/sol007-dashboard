@@ -1,20 +1,20 @@
 {
-  "drift_pct": 2.3699,
+  "drift_pct": 2.5532,
   "legs": {
     "inf": {
       "balance": 3.518819517,
       "r2_reference_sol_price": 1.407837461,
       "r2_reference_source": "sanctum-redemption",
-      "sol_equivalent": 5.015012,
-      "sol_price": 1.4251972861123445,
+      "sol_equivalent": 5.026254,
+      "sol_price": 1.428392222250503,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
       "r2_reference_sol_price": 1.275866054,
       "r2_reference_source": "sanctum-redemption",
-      "sol_equivalent": 20.073641,
-      "sol_price": 1.2817262453320781,
+      "sol_equivalent": 20.108211,
+      "sol_price": 1.2839336023736077,
       "symbol": "JitoSOL"
     }
   },
@@ -22,12 +22,12 @@
   "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
   "r2_reference_ok": true,
   "r2_reference_source": "sanctum-redemption",
-  "total_sol_equivalent": 25.592484,
+  "total_sol_equivalent": 25.638297,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.459%, INF +1.233% vs sanctum-redemption. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
+      "note": "JitoSOL +0.632%, INF +1.460% vs sanctum-redemption. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
       "status": "ok"
     },
     "R4": {
@@ -37,7 +37,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +2.37% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +2.55% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -51,5 +51,5 @@
       "status": "ok"
     }
   },
-  "updated_at": "2026-06-06T12:57:40Z"
+  "updated_at": "2026-06-06T13:27:38Z"
 }
