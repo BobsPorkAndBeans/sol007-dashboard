@@ -1,27 +1,5 @@
 [
   {
-    "drift_pct": 2.4887,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "sol_equivalent": 5.021591,
-        "sol_price": 1.427066911713861,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "sol_equivalent": 20.096744,
-        "sol_price": 1.2832014010562387,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "Jupiter OK for jitosol | Jupiter OK for inf",
-    "total_sol_equivalent": 25.622166,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-06-04T15:41:41Z"
-  },
-  {
     "drift_pct": 2.4145,
     "legs": {
       "inf": {
@@ -2254,5 +2232,33 @@
     "total_sol_equivalent": 25.738215,
     "tripwire_status": "healthy",
     "updated_at": "2026-06-06T22:05:45Z"
+  },
+  {
+    "drift_pct": 2.3054,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.407837461,
+        "r2_reference_source": "sanctum-redemption",
+        "sol_equivalent": 5.009012,
+        "sol_price": 1.4234920194764056,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.275866054,
+        "r2_reference_source": "sanctum-redemption",
+        "sol_equivalent": 20.063499,
+        "sol_price": 1.2810786800685463,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+    "r2_reference_ok": true,
+    "r2_reference_source": "sanctum-redemption",
+    "total_sol_equivalent": 25.576342,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-06-06T22:36:51Z"
   }
 ]
