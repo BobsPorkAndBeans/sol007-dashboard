@@ -1,12 +1,12 @@
 {
-  "drift_pct": 2.4091,
+  "drift_pct": 2.4544,
   "legs": {
     "inf": {
       "balance": 3.518819517,
       "r2_reference_sol_price": 1.407837461,
       "r2_reference_source": "sanctum-redemption",
-      "sol_equivalent": 5.018989,
-      "sol_price": 1.4263276187785678,
+      "sol_equivalent": 5.030309,
+      "sol_price": 1.4295444819147594,
       "symbol": "INF"
     },
     "jitosol": {
@@ -14,21 +14,21 @@
       "r2_reference_sol_price": 1.275866054,
       "r2_reference_source": "sanctum-redemption",
       "sol_equivalent": 20.079454,
-      "sol_price": 1.2820974180605895,
+      "sol_price": 1.282097418,
       "symbol": "JitoSOL"
     }
   },
   "native_sol": 0.503831695,
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+  "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | LKG cache used (age 0.5h <=4h) for jitosol | Jupiter OK for inf",
   "r2_reference_ok": true,
   "r2_reference_source": "sanctum-redemption",
-  "total_sol_equivalent": 25.602275,
+  "total_sol_equivalent": 25.613595,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.488%, INF +1.313% vs sanctum-redemption. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
+      "note": "JitoSOL +0.488%, INF +1.542% vs sanctum-redemption. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
       "status": "ok"
     },
     "R4": {
@@ -38,7 +38,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +2.41% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +2.45% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -48,9 +48,9 @@
     },
     "R8": {
       "label": "Venue Availability",
-      "note": "Jupiter price API and LST exchange rates fetched successfully.",
-      "status": "ok"
+      "note": "Partial price fetch failure (Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | LKG cache used (age 0.5h <=4h) for jitosol | Jupiter OK for inf).",
+      "status": "alert"
     }
   },
-  "updated_at": "2026-06-12T17:36:47Z"
+  "updated_at": "2026-06-12T18:06:47Z"
 }
