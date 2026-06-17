@@ -1,33 +1,5 @@
 [
   {
-    "drift_pct": 2.5452,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "r2_reference_sol_price": 1.407837461,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 5.020309,
-        "sol_price": 1.426702494196681,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "r2_reference_sol_price": 1.275866054,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 20.112161,
-        "sol_price": 1.2841858365741396,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
-    "r2_reference_ok": true,
-    "r2_reference_source": "sanctum-redemption",
-    "total_sol_equivalent": 25.636302,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-06-15T10:08:21Z"
-  },
-  {
     "drift_pct": 2.5383,
     "legs": {
       "inf": {
@@ -2518,5 +2490,33 @@
     "total_sol_equivalent": 25.612806,
     "tripwire_status": "healthy",
     "updated_at": "2026-06-17T05:39:08Z"
+  },
+  {
+    "drift_pct": 2.5894,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.421,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 5.031277,
+        "sol_price": 1.4298196679995299,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.277,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 20.11225,
+        "sol_price": 1.2841914969870063,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Baseline R2 reference fallback for jitosol: The read operation timed out | Baseline R2 reference fallback for inf: The read operation timed out | Jupiter OK for jitosol | Jupiter OK for inf",
+    "r2_reference_ok": false,
+    "r2_reference_source": "baseline-fallback",
+    "total_sol_equivalent": 25.647359,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-06-17T06:09:12Z"
   }
 ]
