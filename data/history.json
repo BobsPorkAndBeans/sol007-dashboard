@@ -1,33 +1,5 @@
 [
   {
-    "drift_pct": 2.5637,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "r2_reference_sol_price": 1.407837461,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 5.033412,
-        "sol_price": 1.430426441603102,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "r2_reference_sol_price": 1.275866054,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 20.103692,
-        "sol_price": 1.283645032332173,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
-    "r2_reference_ok": true,
-    "r2_reference_source": "sanctum-redemption",
-    "total_sol_equivalent": 25.640936,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-06-27T02:04:54Z"
-  },
-  {
     "drift_pct": 2.6887,
     "legs": {
       "inf": {
@@ -2518,5 +2490,33 @@
     "total_sol_equivalent": 25.732504,
     "tripwire_status": "healthy",
     "updated_at": "2026-06-28T21:45:44Z"
+  },
+  {
+    "drift_pct": 2.0148,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.421,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 5.000243,
+        "sol_price": 1.421,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.277,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 19.999621,
+        "sol_price": 1.277,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Baseline R2 reference fallback for jitosol: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline R2 reference fallback for inf: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline fallback for jitosol (cache missing/stale) | Baseline fallback for inf (cache missing/stale)",
+    "r2_reference_ok": false,
+    "r2_reference_source": "baseline-fallback",
+    "total_sol_equivalent": 25.503695,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-06-28T22:15:44Z"
   }
 ]
