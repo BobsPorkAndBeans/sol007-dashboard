@@ -1,34 +1,34 @@
 {
-  "drift_pct": 2.0148,
+  "drift_pct": 2.6519,
   "legs": {
     "inf": {
       "balance": 3.518819517,
-      "r2_reference_sol_price": 1.421,
-      "r2_reference_source": "baseline-fallback",
-      "sol_equivalent": 5.000243,
-      "sol_price": 1.421,
+      "r2_reference_sol_price": 1.407837461,
+      "r2_reference_source": "sanctum-redemption",
+      "sol_equivalent": 5.026686,
+      "sol_price": 1.4285148126897254,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "r2_reference_sol_price": 1.277,
-      "r2_reference_source": "baseline-fallback",
-      "sol_equivalent": 19.999621,
-      "sol_price": 1.277,
+      "r2_reference_sol_price": 1.275866054,
+      "r2_reference_source": "sanctum-redemption",
+      "sol_equivalent": 20.132464,
+      "sol_price": 1.285482180812273,
       "symbol": "JitoSOL"
     }
   },
   "native_sol": 0.503831695,
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "price_source_note": "Baseline R2 reference fallback for jitosol: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline R2 reference fallback for inf: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline fallback for jitosol (cache missing/stale) | Baseline fallback for inf (cache missing/stale)",
-  "r2_reference_ok": false,
-  "r2_reference_source": "baseline-fallback",
-  "total_sol_equivalent": 25.503695,
+  "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+  "r2_reference_ok": true,
+  "r2_reference_source": "sanctum-redemption",
+  "total_sol_equivalent": 25.662981,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.000%, INF +0.000% vs baseline-fallback. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
+      "note": "JitoSOL +0.754%, INF +1.469% vs sanctum-redemption. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
       "status": "ok"
     },
     "R4": {
@@ -38,7 +38,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +2.01% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +2.65% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -48,9 +48,9 @@
     },
     "R8": {
       "label": "Venue Availability",
-      "note": "Partial price fetch failure (Baseline R2 reference fallback for jitosol: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline R2 reference fallback for inf: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline fallback for jitosol (cache missing/stale) | Baseline fallback for inf (cache missing/stale)).",
-      "status": "alert"
+      "note": "Jupiter price API and LST exchange rates fetched successfully.",
+      "status": "ok"
     }
   },
-  "updated_at": "2026-06-28T23:45:45Z"
+  "updated_at": "2026-06-29T00:15:45Z"
 }
