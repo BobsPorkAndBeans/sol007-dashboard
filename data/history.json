@@ -20,34 +20,6 @@
       }
     },
     "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "Baseline R2 reference fallback for jitosol: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline R2 reference fallback for inf: <urlopen error [Errno 8] nodename nor servname provided, or not known> | LKG cache used (age 1.5h <=4h) for jitosol | LKG cache used (age 1.5h <=4h) for inf",
-    "r2_reference_ok": false,
-    "r2_reference_source": "baseline-fallback",
-    "total_sol_equivalent": 25.732504,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-06-28T19:45:43Z"
-  },
-  {
-    "drift_pct": 2.93,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "r2_reference_sol_price": 1.421,
-        "r2_reference_source": "baseline-fallback",
-        "sol_equivalent": 5.047995,
-        "sol_price": 1.434570655,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "r2_reference_sol_price": 1.277,
-        "r2_reference_source": "baseline-fallback",
-        "sol_equivalent": 20.180677,
-        "sol_price": 1.28856065,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
     "price_source_note": "Baseline R2 reference fallback for jitosol: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline R2 reference fallback for inf: <urlopen error [Errno 8] nodename nor servname provided, or not known> | LKG cache used (age 2.0h <=4h) for jitosol | LKG cache used (age 2.0h <=4h) for inf",
     "r2_reference_ok": false,
     "r2_reference_source": "baseline-fallback",
@@ -2518,5 +2490,33 @@
     "total_sol_equivalent": 25.654967,
     "tripwire_status": "healthy",
     "updated_at": "2026-06-30T15:26:29Z"
+  },
+  {
+    "drift_pct": 2.8159,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.407837461,
+        "r2_reference_source": "sanctum-redemption",
+        "sol_equivalent": 5.033943,
+        "sol_price": 1.430577211336219,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.275866054,
+        "r2_reference_source": "sanctum-redemption",
+        "sol_equivalent": 20.16621,
+        "sol_price": 1.28763689636254,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+    "r2_reference_ok": true,
+    "r2_reference_source": "sanctum-redemption",
+    "total_sol_equivalent": 25.703985,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-06-30T15:56:37Z"
   }
 ]
