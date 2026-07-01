@@ -1,33 +1,5 @@
 [
   {
-    "drift_pct": 2.9281,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "r2_reference_sol_price": 1.407837461,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 5.055835,
-        "sol_price": 1.4367986369907002,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "r2_reference_sol_price": 1.275866054,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 20.172352,
-        "sol_price": 1.288029107101558,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
-    "r2_reference_ok": true,
-    "r2_reference_source": "sanctum-redemption",
-    "total_sol_equivalent": 25.732019,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-06-29T11:18:39Z"
-  },
-  {
     "drift_pct": 2.7712,
     "legs": {
       "inf": {
@@ -2518,5 +2490,33 @@
     "total_sol_equivalent": 25.685344,
     "tripwire_status": "healthy",
     "updated_at": "2026-07-01T07:16:06Z"
+  },
+  {
+    "drift_pct": 2.7414,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.421,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 5.03366,
+        "sol_price": 1.430496701,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.277,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 20.147852,
+        "sol_price": 1.286464753,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Baseline R2 reference fallback for jitosol: <urlopen error [Errno 8] nodename nor servname provided, or not known> | Baseline R2 reference fallback for inf: <urlopen error [Errno 8] nodename nor servname provided, or not known> | LKG cache used (age 1.8h <=4h) for jitosol | LKG cache used (age 1.8h <=4h) for inf",
+    "r2_reference_ok": false,
+    "r2_reference_source": "baseline-fallback",
+    "total_sol_equivalent": 25.685344,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-07-01T07:46:06Z"
   }
 ]
