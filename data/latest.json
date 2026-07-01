@@ -6,7 +6,7 @@
       "r2_reference_sol_price": 1.407837461,
       "r2_reference_source": "sanctum-redemption",
       "sol_equivalent": 5.030618,
-      "sol_price": 1.4296321744150744,
+      "sol_price": 1.429632174,
       "symbol": "INF"
     },
     "jitosol": {
@@ -14,13 +14,13 @@
       "r2_reference_sol_price": 1.275866054,
       "r2_reference_source": "sanctum-redemption",
       "sol_equivalent": 20.140581,
-      "sol_price": 1.286000479371883,
+      "sol_price": 1.286000479,
       "symbol": "JitoSOL"
     }
   },
   "native_sol": 0.503831695,
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+  "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | LKG cache used (age 0.5h <=4h) for jitosol | LKG cache used (age 0.5h <=4h) for inf",
   "r2_reference_ok": true,
   "r2_reference_source": "sanctum-redemption",
   "total_sol_equivalent": 25.675031,
@@ -48,9 +48,9 @@
     },
     "R8": {
       "label": "Venue Availability",
-      "note": "Jupiter price API and LST exchange rates fetched successfully.",
-      "status": "ok"
+      "note": "Partial price fetch failure (Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | LKG cache used (age 0.5h <=4h) for jitosol | LKG cache used (age 0.5h <=4h) for inf).",
+      "status": "alert"
     }
   },
-  "updated_at": "2026-06-30T23:58:47Z"
+  "updated_at": "2026-07-01T00:28:55Z"
 }
