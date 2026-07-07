@@ -1,33 +1,5 @@
 [
   {
-    "drift_pct": 2.9943,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "r2_reference_sol_price": 1.407837461,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 5.041866,
-        "sol_price": 1.4328289192777128,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "r2_reference_sol_price": 1.275866054,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 20.20288,
-        "sol_price": 1.28997832059132,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
-    "r2_reference_ok": true,
-    "r2_reference_source": "sanctum-redemption",
-    "total_sol_equivalent": 25.748578,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-07-05T12:41:26Z"
-  },
-  {
     "drift_pct": 2.839,
     "legs": {
       "inf": {
@@ -2518,5 +2490,33 @@
     "total_sol_equivalent": 25.708301,
     "tripwire_status": "healthy",
     "updated_at": "2026-07-07T08:51:49Z"
+  },
+  {
+    "drift_pct": 3.0059,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.421,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 5.05038,
+        "sol_price": 1.435248257706024,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.275866054,
+        "r2_reference_source": "baseline-fallback",
+        "sol_equivalent": 20.19726,
+        "sol_price": 1.2896194822401599,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Sanctum redemption OK for jitosol | Baseline R2 reference fallback for inf: HTTP Error 520: <none> | Jupiter OK for jitosol | Jupiter OK for inf",
+    "r2_reference_ok": false,
+    "r2_reference_source": "baseline-fallback",
+    "total_sol_equivalent": 25.751471,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-07-07T09:21:55Z"
   }
 ]
