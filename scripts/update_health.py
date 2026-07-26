@@ -397,6 +397,7 @@ def main():
         latest = {
             "updated_at": updated_at,
             "pilot_pubkey": pilot_pubkey,
+            "native_sol": float(baseline.get("legs", {}).get("native_sol", 0.0)),
             "total_sol_equivalent": round(total_sol_equivalent, 6),
             "drift_pct": round(drift_pct, 4),
             "tripwire_status": overall_status,
