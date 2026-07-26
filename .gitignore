@@ -1,6 +1,29 @@
-.DS_Store
-.idea/
-*.log
-.env
-node_modules/
-data/price-cache.json
+# ALLOWLIST MODE (2026-07-25). This working copy contains PRIVATE operational
+# files (sanctum-watch daemon scripts, health snapshot, launchd plist, ops
+# docs) alongside the public dashboard. Everything is ignored by default;
+# only explicitly unignored paths below can ever be committed to this PUBLIC
+# repo. To publish a new file, add a `!` line for it deliberately.
+*
+!*/
+
+# --- public dashboard ---
+!/.gitignore
+!/CNAME
+!/README.md
+!/DEPLOY.md
+!/index.html
+!/app.js
+!/style.css
+
+# --- published data (written by the auto-updater) ---
+!/data/baseline.json
+!/data/latest.json
+!/data/history.json
+!/data/incidents.json
+!/data/returns.json
+!/data/returns_history.jsonl
+
+# --- published scripts + tests ---
+!/scripts/update_health.py
+!/scripts/fetch_yield.py
+!/tests/test_update_health.py
