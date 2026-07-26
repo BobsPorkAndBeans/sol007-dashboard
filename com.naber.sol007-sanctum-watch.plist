@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.naber.sol007-sanctum-watch</string>
+
+  <key>UserName</key>
+  <string>clayton</string>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/clayton/sol007-dashboard</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/clayton/sol007-dashboard/scripts/sanctum_watch_launchd.sh</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>HOME</key>
+    <string>/Users/clayton</string>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+
+  <key>StartInterval</key>
+  <integer>1800</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/clayton/sol007-dashboard/logs/sanctum-watch.launchd.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/clayton/sol007-dashboard/logs/sanctum-watch.launchd.err.log</string>
+</dict>
+</plist>
