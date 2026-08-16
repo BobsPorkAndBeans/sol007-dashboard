@@ -273,6 +273,7 @@ def evaluate_tripwires(
         jito_data = get_json(jito_url, timeout=10)
         r4_note = f"Sanctum/Jito TVL endpoints reachable. Alert if TVL drops >30% in 30 days."
     except Exception:
+        r4_status = "unknown"
         r4_note = "data unavailable"
     tripwires["R4"] = {"label": "Venue TVL Floor", "status": r4_status, "note": r4_note}
 
@@ -427,38 +428,8 @@ def main():
         atomic_write_json(HISTORY_PATH, history)
 
         print(json.dumps(latest, indent=2, sort_keys=True))
-
-        # Git commit/push (atomic, same pattern as fetch_yield.py)
-        try:
-            ts = latest["updated_at"]
-            status = latest["tripwire_status"]
-            commit_msg = f"health update {ts} status={status}"
-            subprocess.run(
-                ["git", "add", "data/latest.json", "data/history.json"],
-                cwd=str(ROOT),
-                check=True,
-                capture_output=True,
-            )
-            result = subprocess.run(
-                ["git", "diff", "--cached", "--quiet"],
-                cwd=str(ROOT),
-                capture_output=True,
-            )
-            if result.returncode != 0:  # staged changes exist
-                subprocess.run(
-                    ["git", "commit", "-m", commit_msg],
-                    cwd=str(ROOT),
-                    check=True,
-                    capture_output=True,
-                )
-                subprocess.run(["git", "push"], cwd=str(ROOT), check=True, capture_output=True)
-                print(f"[git] pushed: {commit_msg}")
-            else:
-                print("[git] no change to commit")
-        except subprocess.CalledProcessError as e:
-            err = e.stderr.decode().strip() if e.stderr else str(e)
-            print(f"[git] push failed: {err}", file=sys.stderr)
-
+        # Do not git-push here. fetch_yield.py publishes health + yield in one commit
+        # so Pages does not cancel itself every cycle.
         sys.exit(0)
 
     except Exception as e:

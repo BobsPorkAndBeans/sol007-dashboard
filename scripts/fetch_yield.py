@@ -97,20 +97,48 @@ def main():
     HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
     with HISTORY_PATH.open("a") as f:
         f.write(json.dumps(snapshot, sort_keys=True, separators=(",", ":")) + "\n")
+    # Keep the full jsonl on Sophie only. Pages gets a short sparkline window.
+    spark_points = []
+    try:
+        for line in HISTORY_PATH.read_text().splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            rec = json.loads(line)
+            spark_points.append({
+                "snapshot_at": rec.get("snapshot_at"),
+                "yield_sol_total": rec.get("yield_sol_total"),
+            })
+    except Exception:
+        spark_points = [{
+            "snapshot_at": snapshot["snapshot_at"],
+            "yield_sol_total": snapshot["yield_sol_total"],
+        }]
+    atomic_write_json(DATA / "returns_sparkline.json", {"points": spark_points[-180:]})
     print(json.dumps(snapshot, indent=2, sort_keys=True))
 
-    # Push updated returns.json to GitHub Pages so the public dashboard stays current.
-    # Only commit data/returns.json (not history, to keep diff small).
+    # One public commit per cycle (health writes files first, this job publishes).
     try:
         apy = snapshot["annualized_apy"]
         ts = snapshot["snapshot_at"]
-        commit_msg = f"yield update {ts} APY={apy:.2f}%"
-        subprocess.run(["git", "add", "data/returns.json", "data/returns_history.jsonl"], cwd=str(ROOT), check=True, capture_output=True)
+        commit_msg = f"dashboard update {ts} APY={apy:.2f}%"
+        subprocess.run(
+            [
+                "git", "add",
+                "data/returns.json",
+                "data/returns_sparkline.json",
+                "data/latest.json",
+                "data/history.json",
+            ],
+            cwd=str(ROOT),
+            check=True,
+            capture_output=True,
+        )
         result = subprocess.run(
             ["git", "diff", "--cached", "--quiet"],
             cwd=str(ROOT), capture_output=True
         )
-        if result.returncode != 0:  # staged changes exist
+        if result.returncode != 0:
             subprocess.run(["git", "commit", "-m", commit_msg], cwd=str(ROOT), check=True, capture_output=True)
             subprocess.run(["git", "push"], cwd=str(ROOT), check=True, capture_output=True)
             print(f"[git] pushed: {commit_msg}")
