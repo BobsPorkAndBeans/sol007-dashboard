@@ -1,33 +1,5 @@
 [
   {
-    "drift_pct": 3.6114,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "r2_reference_sol_price": 1.407837461,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 5.084012,
-        "sol_price": 1.4448062345403454,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "r2_reference_sol_price": 1.275866054,
-        "r2_reference_source": "sanctum-redemption",
-        "sol_equivalent": 20.315005,
-        "sol_price": 1.297137616175824,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
-    "r2_reference_ok": true,
-    "r2_reference_source": "sanctum-redemption",
-    "total_sol_equivalent": 25.902849,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-08-26T08:02:20Z"
-  },
-  {
     "drift_pct": 3.6113,
     "legs": {
       "inf": {
@@ -2518,5 +2490,33 @@
     "total_sol_equivalent": 25.917948,
     "tripwire_status": "healthy",
     "updated_at": "2026-08-28T03:39:51Z"
+  },
+  {
+    "drift_pct": 4.09,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.407837461,
+        "r2_reference_source": "sanctum-redemption",
+        "sol_equivalent": 5.106868,
+        "sol_price": 1.4513015637198634,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.275866054,
+        "r2_reference_source": "sanctum-redemption",
+        "sol_equivalent": 20.411811,
+        "sol_price": 1.3033188250697998,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+    "r2_reference_ok": true,
+    "r2_reference_source": "sanctum-redemption",
+    "total_sol_equivalent": 26.022511,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-08-28T04:09:55Z"
   }
 ]
