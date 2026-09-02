@@ -1,34 +1,34 @@
 {
-  "drift_pct": 3.6156,
+  "drift_pct": 3.8331,
   "legs": {
     "inf": {
       "balance": 3.518819517,
       "r2_reference_sol_price": 1.407837461,
-      "r2_reference_source": "sanctum-redemption",
-      "sol_equivalent": 5.082563,
-      "sol_price": 1.4443944173966683,
+      "r2_reference_source": "baseline-fallback",
+      "sol_equivalent": 5.096805,
+      "sol_price": 1.448441656690632,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "r2_reference_sol_price": 1.275866054,
-      "r2_reference_source": "sanctum-redemption",
-      "sol_equivalent": 20.317502,
-      "sol_price": 1.2972970914701076,
+      "r2_reference_sol_price": 1.277,
+      "r2_reference_source": "baseline-fallback",
+      "sol_equivalent": 20.357647,
+      "sol_price": 1.2998603663935675,
       "symbol": "JitoSOL"
     }
   },
   "native_sol": 0.503831695,
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "price_source_note": "Sanctum redemption OK for jitosol | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
-  "r2_reference_ok": true,
-  "r2_reference_source": "sanctum-redemption",
-  "total_sol_equivalent": 25.903897,
+  "price_source_note": "Baseline R2 reference fallback for jitosol: The read operation timed out | Sanctum redemption OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+  "r2_reference_ok": false,
+  "r2_reference_source": "baseline-fallback",
+  "total_sol_equivalent": 25.958283,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +1.680%, INF +2.597% vs sanctum-redemption. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
+      "note": "JitoSOL +1.790%, INF +2.884% vs baseline-fallback. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
       "status": "ok"
     },
     "R4": {
@@ -38,7 +38,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +3.62% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +3.83% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -52,5 +52,5 @@
       "status": "ok"
     }
   },
-  "updated_at": "2026-09-02T15:32:29Z"
+  "updated_at": "2026-09-02T16:02:35Z"
 }
