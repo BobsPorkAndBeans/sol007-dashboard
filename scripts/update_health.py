@@ -9,6 +9,11 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+_SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+from lst_onchain_nav import fetch_lst_nav  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 BASELINE_PATH = DATA / "baseline.json"
@@ -17,7 +22,8 @@ HISTORY_PATH = DATA / "history.json"
 INCIDENTS_PATH = DATA / "incidents.json"
 PRICE_CACHE_PATH = DATA / "price-cache.json"
 SOL_MINT = "So11111111111111111111111111111111111111112"
-SANCTUM_SOL_VALUE_URL = "https://extra-api.sanctum.so/v1/sol-value/current"
+# Sanctum extra-api /v1/sol-value/current is stale/cached; do not use as NAV.
+# Live NAV comes from getAccountInfo (SPL stake pool for JitoSOL, Infinity PoolState for INF).
 MAX_CACHE_AGE_HOURS = 4.0
 R2_ALERT_RATIO = 0.985
 R2_BREACH_HOURS = 6.0
@@ -40,17 +46,12 @@ def jupiter_sol_price(mint):
     return token_usd / sol_usd, {"provider": "jupiter-price-v3", "url": url, "token_usd": token_usd, "sol_usd": sol_usd}
 
 
-def sanctum_sol_value(mint):
-    """Return intrinsic redemption value in SOL/token from Sanctum extra-api."""
-    url = f"{SANCTUM_SOL_VALUE_URL}?lst={mint}"
-    data = get_json(url, timeout=15)
-    raw = (data.get("solValues") or {}).get(mint)
-    if raw is None:
-        raise ValueError(f"Sanctum sol-value missing {mint}")
-    value = float(raw) / 1_000_000_000.0
+def onchain_sol_value(mint):
+    """Return live intrinsic NAV in SOL/token from on-chain pool state (getAccountInfo)."""
+    value, meta = fetch_lst_nav(mint)
     if value <= 0:
-        raise ValueError(f"Sanctum sol-value non-positive for {mint}")
-    return value, {"provider": "sanctum-extra-api", "url": url}
+        raise ValueError(f"On-chain NAV non-positive for {mint}")
+    return value, meta
 
 
 def atomic_write_json(path, payload):
@@ -166,17 +167,17 @@ def evaluate_r2_tripwire(legs, baseline, history=None, current_updated_at=None, 
 
 
 def load_r2_reference(baseline):
-    """Use current Sanctum redemption value for R2, falling back to baseline if unavailable."""
-    reference = {"source": "sanctum-redemption", "legs": {}}
+    """Use live on-chain LST NAV for R2 (-1.5% vs true NAV), falling back to baseline."""
+    reference = {"source": "onchain-lst-nav", "legs": {}}
     notes = []
     ok = True
     for key in ("jitosol", "inf"):
         base_leg = baseline["legs"][key]
         fallback_price = float(base_leg["price_sol_per_token"])
         try:
-            value, _meta = sanctum_sol_value(base_leg["mint"])
+            value, _meta = onchain_sol_value(base_leg["mint"])
             reference["legs"][key] = {"price_sol_per_token": value}
-            notes.append(f"Sanctum redemption OK for {key}")
+            notes.append(f"On-chain LST NAV OK for {key}")
         except Exception as exc:
             ok = False
             reference["legs"][key] = {"price_sol_per_token": fallback_price}
