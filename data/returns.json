@@ -1,43 +1,43 @@
 {
-  "annualized_apy": 5.440204969120528,
+  "annualized_apy": 4.303388655445764,
   "baseline_sol": 25.0,
-  "days_elapsed": 129.18597222222223,
+  "days_elapsed": 129.20685185185187,
   "deployed_at": "2026-05-03T18:05:00Z",
   "legs": {
     "inf": {
       "amount_token": 3.518819517,
       "baseline_price_sol_per_token": 1.421,
-      "current_price_sol_per_token": 1.4505716516703222,
+      "current_price_sol_per_token": 1.444436985143225,
       "label": "INF",
       "mint": "5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm",
-      "yield_sol": 0.10405730504745528
+      "yield_sol": 0.0824705207416192
     },
     "jitosol": {
       "amount_token": 15.661410365,
       "baseline_price_sol_per_token": 1.277,
-      "current_price_sol_per_token": 1.301091783204364,
+      "current_price_sol_per_token": 1.2960512916181615,
       "label": "JitoSOL",
       "mint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
-      "yield_sol": 0.3773113031881611
+      "yield_sol": 0.2983700960153129
     }
   },
-  "snapshot_at": "2026-09-09T22:32:48Z",
+  "snapshot_at": "2026-09-09T23:02:52Z",
   "sources": {
     "inf": {
       "provider": "jupiter-price-v3",
-      "sol_usd": 101.35677273686977,
-      "token_usd": 147.02526123689466,
+      "sol_usd": 101.1167289035659,
+      "token_usd": 146.05674304501153,
       "url": "https://lite-api.jup.ag/price/v3?ids=5oVNBeEEQvYi1cX3ir8Dx5n1P7pdxydbGF2X4TxVusJm,So11111111111111111111111111111111111111112"
     },
     "jitosol": {
       "provider": "jupiter-price-v3",
-      "sol_usd": 101.35677273686977,
-      "token_usd": 131.87446418005337,
+      "sol_usd": 101.1167289035659,
+      "token_usd": 131.05246709967005,
       "url": "https://lite-api.jup.ag/price/v3?ids=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn,So11111111111111111111111111111111111111112"
     }
   },
-  "yield_pct_total": 1.9254744329424656,
-  "yield_sol_inf": 0.10405730504745528,
-  "yield_sol_jitosol": 0.3773113031881611,
-  "yield_sol_total": 0.48136860823561634
+  "yield_pct_total": 1.5233624670277284,
+  "yield_sol_inf": 0.0824705207416192,
+  "yield_sol_jitosol": 0.2983700960153129,
+  "yield_sol_total": 0.3808406167569321
 }
