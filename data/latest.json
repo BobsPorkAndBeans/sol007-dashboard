@@ -1,34 +1,34 @@
 {
-  "drift_pct": 4.0607,
+  "drift_pct": 4.0497,
   "legs": {
     "inf": {
       "balance": 3.518819517,
-      "r2_reference_sol_price": 1.45239629324748,
+      "r2_reference_sol_price": 1.4523982668402196,
       "r2_reference_source": "onchain-lst-nav",
-      "sol_equivalent": 5.102956,
-      "sol_price": 1.450189674859276,
+      "sol_equivalent": 5.100193,
+      "sol_price": 1.4494045766275265,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "r2_reference_sol_price": 1.302588530789053,
+      "r2_reference_sol_price": 1.3025885307890541,
       "r2_reference_source": "onchain-lst-nav",
       "sol_equivalent": 20.408398,
-      "sol_price": 1.3031008851243717,
+      "sol_price": 1.303100885,
       "symbol": "JitoSOL"
     }
   },
   "native_sol": 0.503831695,
   "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-  "price_source_note": "On-chain LST NAV OK for jitosol | On-chain LST NAV OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+  "price_source_note": "On-chain LST NAV OK for jitosol | On-chain LST NAV OK for inf | LKG cache used (age 0.5h <=4h) for jitosol | Jupiter OK for inf",
   "r2_reference_ok": true,
   "r2_reference_source": "onchain-lst-nav",
-  "total_sol_equivalent": 26.015185,
+  "total_sol_equivalent": 26.012423,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.039%, INF -0.152% vs onchain-lst-nav. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
+      "note": "JitoSOL +0.039%, INF -0.206% vs onchain-lst-nav. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
       "status": "ok"
     },
     "R4": {
@@ -38,7 +38,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +4.06% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +4.05% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -48,9 +48,9 @@
     },
     "R8": {
       "label": "Venue Availability",
-      "note": "Jupiter price API and LST exchange rates fetched successfully.",
-      "status": "ok"
+      "note": "Partial price fetch failure (On-chain LST NAV OK for jitosol | On-chain LST NAV OK for inf | LKG cache used (age 0.5h <=4h) for jitosol | Jupiter OK for inf).",
+      "status": "alert"
     }
   },
-  "updated_at": "2026-09-22T17:44:27Z"
+  "updated_at": "2026-09-22T18:14:43Z"
 }
