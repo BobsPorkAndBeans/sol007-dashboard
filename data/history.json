@@ -1,33 +1,5 @@
 [
   {
-    "drift_pct": 3.999,
-    "legs": {
-      "inf": {
-        "balance": 3.518819517,
-        "r2_reference_sol_price": 1.4527454496988874,
-        "r2_reference_source": "onchain-lst-nav",
-        "sol_equivalent": 5.102891,
-        "sol_price": 1.4501712400302889,
-        "symbol": "INF"
-      },
-      "jitosol": {
-        "balance": 15.661410365,
-        "r2_reference_sol_price": 1.303039401710908,
-        "r2_reference_source": "onchain-lst-nav",
-        "sol_equivalent": 20.393039,
-        "sol_price": 1.3021202318961143,
-        "symbol": "JitoSOL"
-      }
-    },
-    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
-    "price_source_note": "On-chain LST NAV OK for jitosol | On-chain LST NAV OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
-    "r2_reference_ok": true,
-    "r2_reference_source": "onchain-lst-nav",
-    "total_sol_equivalent": 25.999762,
-    "tripwire_status": "healthy",
-    "updated_at": "2026-09-25T15:26:14Z"
-  },
-  {
     "drift_pct": 3.7925,
     "legs": {
       "inf": {
@@ -2518,5 +2490,33 @@
     "total_sol_equivalent": 26.007681,
     "tripwire_status": "healthy",
     "updated_at": "2026-09-27T11:31:27Z"
+  },
+  {
+    "drift_pct": 3.9187,
+    "legs": {
+      "inf": {
+        "balance": 3.518819517,
+        "r2_reference_sol_price": 1.4530350383355848,
+        "r2_reference_source": "onchain-lst-nav",
+        "sol_equivalent": 5.101361,
+        "sol_price": 1.4497364211143084,
+        "symbol": "INF"
+      },
+      "jitosol": {
+        "balance": 15.661410365,
+        "r2_reference_sol_price": 1.303265717804454,
+        "r2_reference_source": "onchain-lst-nav",
+        "sol_equivalent": 20.374488,
+        "sol_price": 1.300935732203381,
+        "symbol": "JitoSOL"
+      }
+    },
+    "pilot_pubkey": "HFWs4p4n9vGDRRpnxtsTATsnvoaub5tu76VUaLeExyfH",
+    "price_source_note": "On-chain LST NAV OK for jitosol | On-chain LST NAV OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
+    "r2_reference_ok": true,
+    "r2_reference_source": "onchain-lst-nav",
+    "total_sol_equivalent": 25.979681,
+    "tripwire_status": "healthy",
+    "updated_at": "2026-09-27T12:01:30Z"
   }
 ]
