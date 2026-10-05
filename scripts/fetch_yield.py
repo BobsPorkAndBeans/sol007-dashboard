@@ -17,7 +17,7 @@ RETURNS_PATH = DATA / "returns.json"
 HISTORY_PATH = DATA / "returns_history.jsonl"
 PUBLISH_STATE_PATH = LOGS / "last_publish.json"
 PUBLISH_LOG_PATH = LOGS / "publish.log"
-MIN_PUBLISH_INTERVAL_SEC = 3600
+MIN_PUBLISH_INTERVAL_SEC = 3600 - 120  # 58 min: tolerates launchd/fetch jitter; with 30m runs this yields one push per ~60m
 # Floats closer than this (absolute) are treated as unchanged.
 FLOAT_EPS = 1e-6
 # Timestamp / run-metadata keys that always change and must not force a commit.
