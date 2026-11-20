@@ -1,20 +1,20 @@
 {
-  "drift_pct": 4.7009,
+  "drift_pct": 4.8995,
   "legs": {
     "inf": {
       "balance": 3.518819517,
-      "r2_reference_sol_price": 1.464419221643365,
+      "r2_reference_sol_price": 1.4644192288411515,
       "r2_reference_source": "onchain-lst-nav",
-      "sol_equivalent": 5.152178,
-      "sol_price": 1.4641780599484842,
+      "sol_equivalent": 5.166506,
+      "sol_price": 1.4682498295178403,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "r2_reference_sol_price": 1.312423829321839,
+      "r2_reference_sol_price": 1.3124238293218407,
       "r2_reference_source": "onchain-lst-nav",
-      "sol_equivalent": 20.519226,
-      "sol_price": 1.3101773927184988,
+      "sol_equivalent": 20.554543,
+      "sol_price": 1.3124324578020536,
       "symbol": "JitoSOL"
     }
   },
@@ -23,12 +23,12 @@
   "price_source_note": "On-chain LST NAV OK for jitosol | On-chain LST NAV OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
   "r2_reference_ok": true,
   "r2_reference_source": "onchain-lst-nav",
-  "total_sol_equivalent": 26.175236,
+  "total_sol_equivalent": 26.224881,
   "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL -0.171%, INF -0.016% vs onchain-lst-nav. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
+      "note": "JitoSOL +0.001%, INF +0.262% vs onchain-lst-nav. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
       "status": "ok"
     },
     "R4": {
@@ -38,7 +38,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +4.70% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +4.90% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -52,5 +52,5 @@
       "status": "ok"
     }
   },
-  "updated_at": "2026-11-19T23:28:45Z"
+  "updated_at": "2026-11-20T00:28:51Z"
 }
