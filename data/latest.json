@@ -1,20 +1,20 @@
 {
-  "drift_pct": 4.5628,
+  "drift_pct": 4.907,
   "legs": {
     "inf": {
       "balance": 3.518819517,
-      "r2_reference_sol_price": 1.4661498905445731,
+      "r2_reference_sol_price": 1.466149901689782,
       "r2_reference_source": "onchain-lst-nav",
-      "sol_equivalent": 5.059136,
-      "sol_price": 1.4377366263850713,
+      "sol_equivalent": 5.148921,
+      "sol_price": 1.4632523336150005,
       "symbol": "INF"
     },
     "jitosol": {
       "balance": 15.661410365,
-      "r2_reference_sol_price": 1.3138946323846243,
+      "r2_reference_sol_price": 1.3138946323846254,
       "r2_reference_source": "onchain-lst-nav",
-      "sol_equivalent": 20.577743,
-      "sol_price": 1.3139138156253527,
+      "sol_equivalent": 20.573992,
+      "sol_price": 1.3136742954908915,
       "symbol": "JitoSOL"
     }
   },
@@ -23,13 +23,13 @@
   "price_source_note": "On-chain LST NAV OK for jitosol | On-chain LST NAV OK for inf | Jupiter OK for jitosol | Jupiter OK for inf",
   "r2_reference_ok": true,
   "r2_reference_source": "onchain-lst-nav",
-  "total_sol_equivalent": 26.140711,
-  "tripwire_status": "alert",
+  "total_sol_equivalent": 26.226745,
+  "tripwire_status": "healthy",
   "tripwires": {
     "R2": {
       "label": "LST Peg Deviation",
-      "note": "JitoSOL +0.001%, INF -1.938% vs onchain-lst-nav. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
-      "status": "alert"
+      "note": "JitoSOL -0.017%, INF -0.198% vs onchain-lst-nav. R2 downside peg threshold: <0.985 for >6h. Upside premium/accrual is not a breach.",
+      "status": "ok"
     },
     "R4": {
       "label": "Venue TVL Floor",
@@ -38,7 +38,7 @@
     },
     "R5": {
       "label": "Portfolio Drawdown",
-      "note": "Current drift +4.56% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
+      "note": "Current drift +4.91% vs 25.0 SOL deposit. Alert <-5%, breached <-10%.",
       "status": "ok"
     },
     "R7": {
@@ -52,5 +52,5 @@
       "status": "ok"
     }
   },
-  "updated_at": "2026-11-28T03:51:54Z"
+  "updated_at": "2026-11-28T04:51:59Z"
 }
